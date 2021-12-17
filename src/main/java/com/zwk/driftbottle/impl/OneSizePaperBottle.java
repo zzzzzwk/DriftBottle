@@ -2,6 +2,7 @@ package com.zwk.driftbottle.impl;
 
 import com.zwk.driftbottle.interfaces.Bottle;
 import com.zwk.driftbottle.interfaces.Paper;
+import com.zwk.driftbottle.interfaces.nulls.NullObject;
 
 /**
  * @author zwk
@@ -20,11 +21,14 @@ public class OneSizePaperBottle implements Bottle {
 
     @Override
     public Paper get() {
+        if (this.paper == null){
+            return NullPaper.getInstance();
+        }
         return this.paper;
     }
 
     @Override
     public boolean isEmpty() {
-        return this.paper == null;
+        return this.paper == null || this.paper instanceof NullObject;
     }
 }

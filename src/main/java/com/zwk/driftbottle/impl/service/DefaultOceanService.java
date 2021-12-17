@@ -34,13 +34,9 @@ public class DefaultOceanService implements OceanService {
     @Override
     public String get() {
         Ocean ocean = oceanFactory.create();
-        Optional<Bottle> optionalBottle = ocean.get();
-        AtomicReference<String> message = new AtomicReference<>();
-        optionalBottle.ifPresentOrElse(
-                bottle -> message.set(bottle.get().read()),
-                ()-> message.set("")
-        );
-        return message.get();
+        Bottle bottle = ocean.get();
+        Paper paper = bottle.get();
+        return paper.read();
     }
 
     @Override

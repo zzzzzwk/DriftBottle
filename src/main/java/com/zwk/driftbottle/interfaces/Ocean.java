@@ -1,6 +1,5 @@
 package com.zwk.driftbottle.interfaces;
 
-import java.util.Optional;
 
 /**
  * @author zwk
@@ -21,5 +20,5 @@ public interface Ocean {
      * @date 20:22 2021/12/16
      * @return Bottle
      **/
-    Optional<Bottle> get();
+    Bottle get();
 }

@@ -5,7 +5,6 @@ import com.zwk.driftbottle.interfaces.Ocean;
 import org.springframework.lang.NonNull;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.Random;
 
 /**
@@ -31,11 +30,11 @@ public final class SingleDefaultOcean implements Ocean {
     }
 
     @Override
-    public Optional<Bottle> get() {
-        Bottle bottle = null;
+    public Bottle get() {
+        Bottle bottle = NullBottle.getInstance();
         if (!this.list.isEmpty()){
             bottle = this.list.get(new Random().nextInt(this.list.size()));
         }
-        return Optional.ofNullable(bottle);
+        return bottle;
     }
 }
