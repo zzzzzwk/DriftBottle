@@ -33,7 +33,7 @@ public final class SingleDefaultOcean implements Ocean {
     public Bottle get() {
         Bottle bottle = NullBottle.getInstance();
         if (!this.list.isEmpty()){
-            bottle = this.list.get(new Random().nextInt(this.list.size()));
+            bottle = this.list.remove(new Random().nextInt(this.list.size()));
         }
         return bottle;
     }
